@@ -1,100 +1,24 @@
-Акинатор - Древо познания
+# Akinator Tree Project
 
-Описание проекта
+A classic **Akinator game** implementation in C++ built around a binary tree data structure. The program guesses objects (or concepts), learns new entries dynamically, and provides definitions and comparisons between items.
 
-Акинатор — это программа, реализующая игру "Угадай животное/объект" с использованием бинарного дерева решений. Программа строит дерево вопросов, определяет объекты, находит пути к узлам, различия между объектами и может визуализировать дерево в формате PNG.
+## Features
+- **Interactive Akinator Gameplay:** Play against the knowledge tree, answer "Yes/No", and teach the computer new objects if it fails.
+- **Tree Persistence:** Load and save the knowledge base from/to structured text files[cite: 8].
+- **Definitions & Comparisons:** Find definitions for specific terms or compare similarities and differences between two objects[cite: 6].
+- **Graph Visualization:** Automatically generates visual Graphviz (`.dot` to `.png`) dumps of the binary tree structure[cite: 6, 8].
 
-Основные возможности
+## Project Structure
+- `tree.cpp` / `tree.h` — Core binary tree logic, file parsing, and Akinator gameplay loop.
+- `file_using.cpp` / `file_using.h` — Safe file opening/closing wrappers[cite: 3, 4].
+- `tree.txt` — Default database of nodes and questions[cite: 8].
 
-Акинатор — угадывание объекта путём ответа на вопросы ("Да"/"Нет")
+## Getting Started
 
-Обучение — расширение базы знаний при проигрыше
+Compile project and start working.
 
-Поиск пути — определение положения узла в дереве (L/R-путь)
+'''bash
+./list.out <file_with_tree>
+'''
 
-Определение объекта — вывод признаков, по которым объект был идентифицирован
 
-Сравнение объектов — нахождение сходств и различий между двумя объектами
-
-Визуализация — автоматическая генерация графа дерева (dump.png)
-
-Голосовой вывод — поддержка текста в речь (espeak)
-
-Структура проекта
-
-text
-
-├── tree.cpp           # Основной код программы
-
-├── tree.h             # Заголовочный файл с объявлениями
-
-├── file_using.cpp     # Утилиты для работы с файлами
-
-├── file_using.h       # Заголовки для файловых операций
-
-├── build_tree.sh      # Скрипт компиляции
-
-├── input.txt          # Пример входного дерева (в формате S-выражений)
-
-├── tree.txt           # Тестовое дерево объектов
-
-├── dump.txt           # Промежуточный файл Graphviz (.dot)
-
-├── dump.png           # Сгенерированное изображение дерева
-
-└── README.md          # Данный файл
-
-Компиляция
-Используйте предоставленный скрипт:
-
-bash
-
-chmod +x build_tree.sh
-
-./build_tree.sh
-
-Запуск
-
-bash
-
-./a.out tree.txt [output.txt]
-
-tree.txt — входной файл с деревом (обязательный)
-
-output.txt — опциональный файл для сохранения изменённого дерева
-
-Формат входного дерева
-
-( "корень" 
-    ( "левый потомок" nil nil ) 
-    ( "правый потомок" nil nil ) )
-Где:
-
-"значение" — строка с вопросом или ответом
-
-nil — отсутствие поддерева
-
-Команды акинатора
-При запуске акинатора:
-
-Программа задаёт вопрос: "Это [объект]?"
-
-Отвечайте: Да / Нет
-
-При проигрыше — введите имя загаданного объекта и его отличие
-
-Для завершения введите: Стоп
-
-Примеры работы
-
-Визуализация дерева
-
-![Дерево решений акинатора](./dump.png)
-
-Рекс и Шарик — это был_на_цепи, красивый, но Рекс — не пёс, а Шарик — пёс.
-
-Найденный путь:
-
-way = ZLZLLZLRL
-
-Проект разработан в учебных целях для демонстрации работы с бинарными деревьями, рекурсией и файловым вводом-выводом на C++.
