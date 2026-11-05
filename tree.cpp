@@ -8,7 +8,6 @@
 #include "file_using.h"
 
 const int MAX_COMMAND_LEN = 100;
-const int FILE_NUBER = 2;
 
 int main(int argc, char* argv[])
 {
